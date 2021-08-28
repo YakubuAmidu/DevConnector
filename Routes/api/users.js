@@ -4,7 +4,7 @@ const router = express.Router();
 //@route GET api/profile
 //@desc Test route
 //@access public
-router.get('/users', function (req, res) {
+router.get('/', function (req, res) {
   res.send('Users route');
 });
 

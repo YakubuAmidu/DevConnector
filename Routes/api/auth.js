@@ -1,10 +1,10 @@
-const express = reuire('express');
+const express = require('express');
 const router = express.Router();
 
 //@route GET api/auth
 //@desc Test route
 //@access public
-router.get('/auth', function (req, res) {
+router.get('/', function (req, res) {
   res.send('Auth route');
 });
 
