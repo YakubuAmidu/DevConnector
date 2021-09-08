@@ -1,11 +1,10 @@
+import React, { Fragment } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>App</header>
-    </div>
-  );
-}
+const App = () => (
+  <Fragment>
+    <h1>App</h1>
+  </Fragment>
+);
 
 export default App;
