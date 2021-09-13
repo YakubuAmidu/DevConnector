@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,20 @@ const Login = () => {
             required
           />
         </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            placeholder='Password'
+            name='password'
+            value={password}
+            onChange={(e) => onChange(e)}
+            minLength='6'
+          />
+        </div>
+        <input type='submit' className='btn btn-primary' value='Login' />
+        <p className='my-1'>
+          Don't have an account? <Link to='/register'>Sign Up</Link>
+        </p>
       </form>
     </Fragment>
   );
