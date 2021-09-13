@@ -13,6 +13,15 @@ const Register = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (password !== password2) {
+      console.log('Password do not match');
+    } else {
+      console.log(formData);
+    }
+  };
+
   return (
     <Fragment>
       <h1 className='large text-primary'>Sign Up</h1>
