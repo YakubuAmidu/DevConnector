@@ -45,18 +45,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       instagram: loading || !profile.social ? '' : profile.social.instagram,
     });
-  }, [
-    getCurrentProfile,
-    loading,
-    profile.bio,
-    profile.company,
-    profile.githubusername,
-    profile.location,
-    profile.skills,
-    profile.social,
-    profile.status,
-    profile.website,
-  ]);
+  }, [loading]);
 
   const {
     company,
@@ -79,7 +68,7 @@ const EditProfile = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
@@ -162,7 +151,7 @@ const EditProfile = ({
             placeholder='Github Username'
             name='githubusername'
             value={githubusername}
-            onChangr={(e) => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             If you want your latest repos and a Github link, include your
