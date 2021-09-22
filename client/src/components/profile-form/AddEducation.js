@@ -11,7 +11,7 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy: '',
     from: '',
     to: '',
-    current: '',
+    current: false,
     description: '',
   });
 
@@ -41,10 +41,10 @@ const AddEducation = ({ addEducation, history }) => {
         <div class='form-group'>
           <input
             type='text'
-            placeholder='* School or bootcamp'
-            name='school'
+            placeholder='* School or Bootcamp'
             value={school}
             onChange={(e) => onChange(e)}
+            name='school'
             required
           />
         </div>
@@ -62,18 +62,18 @@ const AddEducation = ({ addEducation, history }) => {
           <input
             type='text'
             placeholder='Field of Study'
-            name='fieldofstudy'
             value={fieldofstudy}
             onChange={(e) => onChange(e)}
+            name='fieldofstudy'
           />
         </div>
         <div class='form-group'>
           <h4>From Date</h4>
           <input
             type='date'
-            name='from'
             value={from}
             onChange={(e) => onChange(e)}
+            name='from'
           />
         </div>
         <div class='form-group'>
@@ -81,14 +81,14 @@ const AddEducation = ({ addEducation, history }) => {
             <input
               type='checkbox'
               name='current'
-              value={current}
               checked={current}
+              value={current}
               onChange={(e) => {
                 setFormData({ ...formData, current: !current });
                 toggleDisabled(!toDateDisabled);
               }}
             />{' '}
-            {''} Current Job
+            Current Job
           </p>
         </div>
         <div class='form-group'>
@@ -124,4 +124,4 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { AddEducation })(withRouter(AddEducation));
+export default connect(null, { addEducation })(withRouter(AddEducation));
