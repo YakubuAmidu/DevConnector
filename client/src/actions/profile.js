@@ -59,7 +59,7 @@ export const createProfile =
   };
 
 //Add experience
-export const AddExperience = (formData, history) => async (dispatch) => {
+export const addExperience = (formData, history) => async (dispatch) => {
   try {
     const config = {
       headers: {
