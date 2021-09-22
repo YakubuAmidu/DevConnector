@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
 
-const AddExperience = (props) => {
+const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -23,6 +23,11 @@ const AddExperience = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addExperience(formData, history);
+  };
+
   return (
     <Fragment>
       <h1 class='large text-primary'>Add An Experience</h1>
@@ -31,7 +36,7 @@ const AddExperience = (props) => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form class='form'>
+      <form class='form' onSubmit={(e) => onSubmit(e)}>
         <div class='form-group'>
           <input
             type='text'
@@ -106,9 +111,9 @@ const AddExperience = (props) => {
           ></textarea>
         </div>
         <input type='submit' class='btn btn-primary my-1' />
-        <a class='btn btn-light my-1' href='dashboard.html'>
+        <Link class='btn btn-light my-1' to='/dashboard'>
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
@@ -118,4 +123,4 @@ AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(AddExperience);
+export default connect(null, { addExperience })(withRouter(AddExperience));
