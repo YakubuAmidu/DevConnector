@@ -1,26 +1,22 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getProfileById } from '../../actions/profile';
 
-const Profiles = ({ getProfileById }) => {
-  return (
-    <Fragment>
-      <h1>Profiles</h1>
-    </Fragment>
-  );
+const Profile = (props) => {
+  return <div>Profile</div>;
 };
 
-Profiles.propTypes = {
+Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
-const mapStatToProps = (state) => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
   auth: state.auth,
 });
 
-export default connect(mapStatToProps, { getProfileById })(Profiles);
+export default connect(mapStateToProps, { getProfileById })(Profile);
