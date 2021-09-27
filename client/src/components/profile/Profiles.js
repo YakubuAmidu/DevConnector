@@ -4,7 +4,16 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getProfileById } from '../../actions/profile';
 
-const Profile = (props) => {
+const Profile = ({
+  getProfileById,
+  profile: { profile, loading },
+  auth,
+  match,
+}) => {
+  useEffect(() => {
+    getProfileById(match.params.id);
+  }, [getProfileById, profile, auth, match]);
+
   return <div>Profile</div>;
 };
 
